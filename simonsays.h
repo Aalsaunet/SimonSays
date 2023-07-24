@@ -2,6 +2,9 @@
 #define SIMONSAYS_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <vector>
+#include <unordered_map>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SimonSays; }
@@ -14,8 +17,21 @@ class SimonSays : public QMainWindow
 public:
     SimonSays(QWidget *parent = nullptr);
     ~SimonSays();
+    enum Color { red, blue, yellow, green };
+    static const int COLOR_COUNT = 4;
+
+private slots:
+    void on_redButton_clicked();
+    void on_blueButton_clicked();
+    void on_yellowButton_clicked();
+    void on_greenButton_clicked();
 
 private:
+    void startNewGame();
+    void playSequence();
+
     Ui::SimonSays *ui;
+    std::vector<Color> sequence;
+    std::map<Color, QPushButton *> colorToButton;
 };
 #endif // SIMONSAYS_H
