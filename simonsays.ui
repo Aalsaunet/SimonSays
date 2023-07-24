@@ -26,6 +26,9 @@
       <height>150</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 239, 70);</string>
     </property>
@@ -37,9 +40,6 @@
     </property>
    </widget>
    <widget class="QPushButton" name="redButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -139,11 +139,20 @@
       </disabled>
      </palette>
     </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -161,11 +170,17 @@
       <height>150</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(31, 117, 255);</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -182,6 +197,9 @@
       <width>150</width>
       <height>150</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(101, 255, 56);</string>
