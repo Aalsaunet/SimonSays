@@ -31,11 +31,11 @@ void SimonSays::startNewGame() {
 void SimonSays::playSequence() {
 
     for (int i = 0; i < sequence.size(); i++) {
-        colorToButton[sequence[i]]->focusWidget();
+        colorToButton[sequence[i]]->setEnabled(true);
         //colorToButton[sequence[i]]->setFlat(true);
         std::cout << i << ": Simon says " << sequence[i] << std::endl;
         QThread::sleep(5); // wait for 1 sec
-        colorToButton[sequence[i]]->setFlat(false);
+        colorToButton[sequence[i]]->setEnabled(false);
     }
 }
 
