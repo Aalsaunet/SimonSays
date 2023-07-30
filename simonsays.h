@@ -17,6 +17,7 @@ class SimonSays : public QMainWindow
 public:
     SimonSays(QWidget *parent = nullptr);
     ~SimonSays();
+    void init();
     enum Color { red, blue, yellow, green };
     static const int COLOR_COUNT = 4;
 
