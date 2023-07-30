@@ -17,7 +17,7 @@ class SimonSays : public QMainWindow
     Q_OBJECT
 
 public:
-    SimonSays(QWidget *parent = nullptr);
+    SimonSays(QApplication *app = nullptr, QWidget *parent = nullptr);
     ~SimonSays();
     void init();
     enum Color { red, blue, yellow, green };
@@ -35,6 +35,7 @@ private:
     void startNewGame();
     void playSequence();
 
+    QApplication *app;
     Ui::SimonSays *ui;
     std::vector<Color> sequence;
     std::map<Color, QPushButton *> colorToButton;

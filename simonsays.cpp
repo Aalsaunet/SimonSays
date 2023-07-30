@@ -4,8 +4,9 @@
 #include "simonsays.h"
 #include "./ui_simonsays.h"
 
-SimonSays::SimonSays(QWidget *parent) : QMainWindow(parent), ui(new Ui::SimonSays) {
+SimonSays::SimonSays(QApplication *a, QWidget *parent) : QMainWindow(parent), ui(new Ui::SimonSays) {
     ui->setupUi(this);
+    app = a;
 }
 
 SimonSays::~SimonSays() {
@@ -53,9 +54,9 @@ void SimonSays::playSequence() {
 
     for (int i = 0; i < sequence.size(); i++) {
         colorToButton[sequence[i]]->setChecked(true);
-        a->processEvents();
+        app->processEvents();//a->processEvents();
         std::cout << i << ": Simon says " << sequence[i] << std::endl;
-        QThread::sleep(3); // wait for 1 sec
+        QThread::sleep(2); // wait for 1 sec
         colorToButton[sequence[i]]->setChecked(false);
     }
 }
