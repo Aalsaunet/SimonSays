@@ -12,14 +12,12 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class SimonSays; }
 QT_END_NAMESPACE
 
-class SimonSays : public QMainWindow
-{
+class SimonSays : public QMainWindow {
     Q_OBJECT
 
 public:
     SimonSays(QApplication *app = nullptr, QWidget *parent = nullptr);
     ~SimonSays();
-    void init();
     enum Color { red, blue, yellow, green };
     static const int COLOR_COUNT = 4;
 
@@ -28,18 +26,17 @@ private slots:
     void on_blueButton_clicked();
     void on_yellowButton_clicked();
     void on_greenButton_clicked();
-
     virtual void keyPressEvent(QKeyEvent *event);
 
 private:
-    void startNewGame();
-    void playSequence();
-    void receiveAnswer(Color);
-
     QApplication *app;
     Ui::SimonSays *ui;
     std::vector<Color> sequence;
     std::map<Color, QPushButton *> colorToButton;
-    int currentColor = 0;
+    int currentColorIdx = 0;
+
+    void startNewGame();
+    void displayColorSequence();
+    void receiveAnswer(Color);
 };
 #endif // SIMONSAYS_H
