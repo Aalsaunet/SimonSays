@@ -34,10 +34,12 @@ private slots:
 private:
     void startNewGame();
     void playSequence();
+    void receiveAnswer(Color);
 
     QApplication *app;
     Ui::SimonSays *ui;
     std::vector<Color> sequence;
     std::map<Color, QPushButton *> colorToButton;
+    int currentColor = 0;
 };
 #endif // SIMONSAYS_H
