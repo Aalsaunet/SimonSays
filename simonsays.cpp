@@ -12,6 +12,12 @@ SimonSays::~SimonSays() {
     delete ui;
 }
 
+ void SimonSays::keyPressEvent(QKeyEvent *e) {
+    if (e->key() == Qt::Key_Space) {
+        init();
+    }
+}
+
 void SimonSays::init() {
     colorToButton[SimonSays::Color(red)] = ui->redButton;
     colorToButton[SimonSays::Color(blue)] = ui->blueButton;
@@ -47,8 +53,9 @@ void SimonSays::playSequence() {
 
     for (int i = 0; i < sequence.size(); i++) {
         colorToButton[sequence[i]]->setChecked(true);
+        a->processEvents();
         std::cout << i << ": Simon says " << sequence[i] << std::endl;
-        QThread::sleep(5); // wait for 1 sec
+        QThread::sleep(3); // wait for 1 sec
         colorToButton[sequence[i]]->setChecked(false);
     }
 }

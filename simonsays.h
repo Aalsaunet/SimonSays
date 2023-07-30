@@ -1,8 +1,10 @@
 #ifndef SIMONSAYS_H
 #define SIMONSAYS_H
 
+#include <QApplication>
 #include <QMainWindow>
 #include <QPushButton>
+#include <QKeyEvent>
 #include <vector>
 #include <unordered_map>
 
@@ -26,6 +28,8 @@ private slots:
     void on_blueButton_clicked();
     void on_yellowButton_clicked();
     void on_greenButton_clicked();
+
+    virtual void keyPressEvent(QKeyEvent *event);
 
 private:
     void startNewGame();
