@@ -507,6 +507,34 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="gameOverText">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>190</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Game over! :((</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>yellowButton</zorder>
    <zorder>blueButton</zorder>
    <zorder>AnswerLabel</zorder>
@@ -517,6 +545,7 @@
    <zorder>answerCount</zorder>
    <zorder>fwdSlash</zorder>
    <zorder>sequenceLength</zorder>
+   <zorder>gameOverText</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -6,6 +6,7 @@
 
 SimonSays::SimonSays(QApplication *a, QWidget *parent) : QMainWindow(parent), ui(new Ui::SimonSays) {
     ui->setupUi(this);
+    ui->gameOverText->setVisible(false);
     app = a;
 }
 
@@ -24,50 +25,42 @@ void SimonSays::init() {
     colorToButton[SimonSays::Color(blue)] = ui->blueButton;
     colorToButton[SimonSays::Color(yellow)] = ui->yellowButton;
     colorToButton[SimonSays::Color(green)] = ui->greenButton;
-
-    ui->redButton->setChecked(false);
-    ui->blueButton->setChecked(false);
-    ui->yellowButton->setChecked(false);
-    ui->greenButton->setChecked(false);
-
     std::cout << "SimonSays initialization complete." << std::endl;
 
     startNewGame();
 }
 
 void SimonSays::startNewGame() {
+
+    ui->redButton->setChecked(false);
+    ui->blueButton->setChecked(false);
+    ui->yellowButton->setChecked(false);
+    ui->greenButton->setChecked(false);
+    ui->gameOverText->setVisible(false);
+
     sequence = std::vector<Color>();
-    currentColor = 0;
-
-    //Color draw = static_cast<Color>(rand() % COLOR_COUNT);
-    //sequence.push_back(draw);
-
-    // TODO Remove test code
-    sequence.push_back(SimonSays::Color(red));
-    sequence.push_back(SimonSays::Color(blue));
-    sequence.push_back(SimonSays::Color(yellow));
-    sequence.push_back(SimonSays::Color(green));
-    // ENDTODO
-
     playSequence();
 }
 
 void SimonSays::playSequence() {
-
-
     currentColor = 0;
-    //TODO add new color to the end of the sequence
+
+    Color draw = static_cast<Color>(rand() % COLOR_COUNT);
+    sequence.push_back(draw);
+
+    ui->sequenceLength->setText(QString::number(sequence.size()));
 
     for (int i = 0; i < sequence.size(); i++) {
         colorToButton[sequence[i]]->setChecked(true);
-        app->processEvents();//a->processEvents();
+        app->processEvents();
         std::cout << i << ": Simon says " << sequence[i] << std::endl;
-        QThread::sleep(2); // wait for 1 sec
+        QThread::sleep(1); // wait for 1 sec
         colorToButton[sequence[i]]->setChecked(false);
+        app->processEvents();
+        QThread::sleep(1);
     }
 
     ui->answerCount->setText(QString::number(currentColor));
-    ui->sequenceLength->setText(QString::number(sequence.size()));
 }
 
 void SimonSays::receiveAnswer(Color answer) {
@@ -75,18 +68,16 @@ void SimonSays::receiveAnswer(Color answer) {
     if (answer == sequence[currentColor]) {
         // Correctly answered
         currentColor++;
-
+        ui->answerCount->setText(QString::number(currentColor));
         if (currentColor == sequence.size()) {
             // Whole sequenced is answered correctly
             playSequence();
         }
 
-        ui->answerCount->setText(QString::number(currentColor));
-
     } else {
         // Wrong color answered
         // TODO add game over screen
-
+        ui->gameOverText->setVisible(true);
     }
 
 }
