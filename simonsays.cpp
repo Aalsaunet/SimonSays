@@ -8,6 +8,7 @@ SimonSays::SimonSays(QApplication *a, QWidget *parent) : QMainWindow(parent), ui
     ui->setupUi(this);
     ui->gameOverText->setVisible(false);
     app = a;
+    sequence = std::vector<Color>();
 
     colorToButton[SimonSays::Color(red)] = ui->redButton;
     colorToButton[SimonSays::Color(blue)] = ui->blueButton;
@@ -21,7 +22,7 @@ SimonSays::~SimonSays() {
 
 void SimonSays::startNewGame() {
     ui->gameOverText->setVisible(false);
-    sequence = std::vector<Color>();
+    sequence.clear();
     displayColorSequence();
 }
 
@@ -50,6 +51,11 @@ void SimonSays::displayColorSequence() {
 }
 
 void SimonSays::receiveAnswer(Color answer) {
+
+    colorToButton[answer]->setChecked(false);
+    if (sequence.size() == 0)
+        return;
+
     bool correctlyAnswered = (answer == sequence[currentColorIdx]);
 
     if (correctlyAnswered) {
@@ -71,25 +77,21 @@ void SimonSays::keyPressEvent(QKeyEvent *e) {
 }
 
 void SimonSays::on_redButton_clicked() {
-    ui->redButton->setChecked(false);
     receiveAnswer(SimonSays::Color(red));
 }
 
 
 void SimonSays::on_blueButton_clicked() {
-    ui->blueButton->setChecked(false);
     receiveAnswer(SimonSays::Color(blue));
 }
 
 
 void SimonSays::on_yellowButton_clicked() {
-    ui->yellowButton->setChecked(false);
     receiveAnswer(SimonSays::Color(yellow));
 }
 
 
 void SimonSays::on_greenButton_clicked() {
-    ui->greenButton->setChecked(false);
     receiveAnswer(SimonSays::Color(green));
 }
 

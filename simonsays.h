@@ -16,10 +16,11 @@ class SimonSays : public QMainWindow {
     Q_OBJECT
 
 public:
-    SimonSays(QApplication *app = nullptr, QWidget *parent = nullptr);
-    ~SimonSays();
     enum Color { red, blue, yellow, green };
     static const int COLOR_COUNT = 4;
+
+    SimonSays(QApplication *app = nullptr, QWidget *parent = nullptr);
+    ~SimonSays();
 
 private slots:
     void on_redButton_clicked();
