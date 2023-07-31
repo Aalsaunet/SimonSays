@@ -41,7 +41,6 @@ void SimonSays::displayColorSequence() {
     for (int i = 0; i < sequence.size(); i++) {
         colorToButton[sequence[i]]->setChecked(true);
         app->processEvents();
-        std::cout << i << ": Simon says " << sequence[i] << std::endl;
         QThread::sleep(1);
         colorToButton[sequence[i]]->setChecked(false);
         app->processEvents();
