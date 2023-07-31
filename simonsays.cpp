@@ -31,7 +31,7 @@ void SimonSays::displayColorSequence() {
     currentColorIdx = 0;
 
     // Add new color to the sequence
-    Color draw = static_cast<Color>(rand() % COLOR_COUNT);
+    Color draw = static_cast<Color>(arc4random_uniform(COLOR_COUNT));
     sequence.push_back(draw);
 
     // Update streak length
