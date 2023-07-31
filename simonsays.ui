@@ -397,17 +397,17 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="AnswerLabel">
+   <widget class="QLabel" name="streakLabel">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>370</y>
-      <width>71</width>
+      <y>380</y>
+      <width>171</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Answered:</string>
+     <string>Current streak:</string>
     </property>
    </widget>
    <widget class="QLabel" name="welcomeText">
@@ -441,55 +441,11 @@
      <string>Press spacebar to get started</string>
     </property>
    </widget>
-   <widget class="QLabel" name="answerCount">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>390</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>22</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="fwdSlash">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>390</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>22</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>/</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="sequenceLength">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>390</y>
+      <x>50</x>
+      <y>400</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -537,13 +493,11 @@
    </widget>
    <zorder>yellowButton</zorder>
    <zorder>blueButton</zorder>
-   <zorder>AnswerLabel</zorder>
+   <zorder>streakLabel</zorder>
    <zorder>redButton</zorder>
    <zorder>greenButton</zorder>
    <zorder>welcomeText</zorder>
    <zorder>InstructionText</zorder>
-   <zorder>answerCount</zorder>
-   <zorder>fwdSlash</zorder>
    <zorder>sequenceLength</zorder>
    <zorder>gameOverText</zorder>
   </widget>

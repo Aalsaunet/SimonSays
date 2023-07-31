@@ -34,8 +34,7 @@ void SimonSays::displayColorSequence() {
     Color draw = static_cast<Color>(rand() % COLOR_COUNT);
     sequence.push_back(draw);
 
-    // Update answer streak and sequence length labels
-    ui->answerCount->setText(QString::number(currentColorIdx));
+    // Update streak length
     ui->sequenceLength->setText(QString::number(sequence.size()));
 
     // Display all colors in the sequence + the newly inserted one
@@ -57,10 +56,7 @@ void SimonSays::receiveAnswer(Color answer) {
         return;
 
     bool correctlyAnswered = (answer == sequence[currentColorIdx]);
-
     if (correctlyAnswered) {
-        ui->answerCount->setText(QString::number(currentColorIdx));
-
         bool sequenceCompleted = (++currentColorIdx == sequence.size());
         if (sequenceCompleted) {
             displayColorSequence();
